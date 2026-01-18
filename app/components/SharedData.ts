@@ -89,8 +89,8 @@ export const skillsHoneycomb: Skill[] = [
     glow: "rgba(21, 101, 192, 0.4)",
   },
   {
-    name: "GraphQL",
-    icon: "Share2",
+    name: "Microservices",
+    icon: "Server",
     category: "Backend",
     color: "#0D47A1",
     glow: "rgba(13, 71, 161, 0.4)",
@@ -126,11 +126,11 @@ export const skillsHoneycomb: Skill[] = [
     glow: "rgba(123, 31, 162, 0.4)",
   },
   {
-    name: "Flutter",
-    icon: "Smartphone",
+    name: "Socket.IO",
+    icon: "Radio",
     category: "Frontend",
-    color: "#6A1B9A",
-    glow: "rgba(106, 27, 154, 0.4)",
+    color: "#1565C0",
+    glow: "rgba(21, 101, 192, 0.4)",
   },
 
   // Database - Green Tones
@@ -202,48 +202,10 @@ export const skillsHoneycomb: Skill[] = [
   {
     name: "TensorFlow",
     icon: "Brain",
-    category: "AI/ML",
-    color: "#D84315",
-    glow: "rgba(216, 67, 21, 0.4)",
-  },
-
-  // Mobile - Indigo Tones
-  {
-    name: "Kotlin",
-    icon: "Code",
     category: "Mobile",
-    color: "#5C6BC0",
-    glow: "rgba(92, 107, 192, 0.4)",
+    color: "#FF7043",
+    glow: "rgba(255, 112, 67, 0.4)",
   },
-  {
-    name: "Jetpack",
-    icon: "Rocket",
-    category: "Mobile",
-    color: "#3F51B5",
-    glow: "rgba(63, 81, 181, 0.4)",
-  },
-  {
-    name: "Firebase",
-    icon: "Flame",
-    category: "Mobile",
-    color: "#3949AB",
-    glow: "rgba(57, 73, 171, 0.4)",
-  },
-  {
-    name: "React Native",
-    icon: "Atom",
-    category: "Mobile",
-    color: "#303F9F",
-    glow: "rgba(48, 63, 159, 0.4)",
-  },
-  {
-    name: "Socket.IO",
-    icon: "Radio",
-    category: "Mobile",
-    color: "#283593",
-    glow: "rgba(40, 53, 147, 0.4)",
-  },
-
   // DevOps - Amber/Orange Tones
   {
     name: "Docker",
@@ -267,18 +229,47 @@ export const skillsHoneycomb: Skill[] = [
     glow: "rgba(255, 179, 0, 0.4)",
   },
   {
-    name: "Nginx",
-    icon: "Server",
+    name: "Jira",
+    icon: "Layers",
     category: "DevOps",
     color: "#FFA000",
     glow: "rgba(255, 160, 0, 0.4)",
   },
   {
-    name: "Postman",
-    icon: "Send",
+    name: "n8n",
+    icon: "Share2",
     category: "DevOps",
     color: "#FF8F00",
     glow: "rgba(255, 143, 0, 0.4)",
+  },
+  // Mobile - Indigo Tones
+  {
+    name: "Kotlin",
+    icon: "Code",
+    category: "Mobile",
+    color: "#5C6BC0",
+    glow: "rgba(92, 107, 192, 0.4)",
+  },
+  {
+    name: "Jetpack",
+    icon: "Rocket",
+    category: "Mobile",
+    color: "#3F51B5",
+    glow: "rgba(63, 81, 181, 0.4)",
+  },
+  {
+    name: "Firebase",
+    icon: "Flame",
+    category: "Mobile",
+    color: "#3949AB",
+    glow: "rgba(57, 73, 171, 0.4)",
+  },
+  {
+    name: "Flutter",
+    icon: "Smartphone",
+    category: "Mobile",
+    color: "#303F9F",
+    glow: "rgba(48, 63, 159, 0.4)",
   },
 ];
 

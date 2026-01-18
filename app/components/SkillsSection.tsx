@@ -63,84 +63,96 @@ const skillIconMap: Record<string, React.ReactNode> = {
   Send: <Send className="w-6 h-6 md:w-7 md:h-7" />,
 };
 
+// Unified honeycomb positions for all 30 skills - properly spaced
+// Hexagon dimensions: width=85px, height=98px (zoomed)
+// For proper honeycomb: H_SPACING = width, V_SPACING = height * 0.75
+const HEX_WIDTH = 115;
+const HEX_HEIGHT = 128;
+const H_SPACING = HEX_WIDTH + 2; // Add small gap
+const V_SPACING = HEX_HEIGHT * 0.78; // Proper vertical for honeycomb interlocking
+
+// Build honeycomb grid positions - 6 rows arranged by category
+// Row pattern: 5, 5, 5, 5, 5, 5 hexagons (30 total)
+const unifiedHexPositions = [
+  // Row 1 - Backend (5 hexagons)
+  { x: -2 * H_SPACING, y: -2.5 * V_SPACING },
+  { x: -1 * H_SPACING, y: -2.5 * V_SPACING },
+  { x: 0, y: -2.5 * V_SPACING },
+  { x: 1 * H_SPACING, y: -2.5 * V_SPACING },
+  { x: 2 * H_SPACING, y: -2.5 * V_SPACING },
+  // Row 2 - Frontend (5 hexagons, offset by half)
+  { x: -1.5 * H_SPACING, y: -1.5 * V_SPACING },
+  { x: -0.5 * H_SPACING, y: -1.5 * V_SPACING },
+  { x: 0.5 * H_SPACING, y: -1.5 * V_SPACING },
+  { x: 1.5 * H_SPACING, y: -1.5 * V_SPACING },
+  { x: 2.5 * H_SPACING, y: -1.5 * V_SPACING },
+  // Row 3 - Database (5 hexagons)
+  { x: -2 * H_SPACING, y: -0.5 * V_SPACING },
+  { x: -1 * H_SPACING, y: -0.5 * V_SPACING },
+  { x: 0, y: -0.5 * V_SPACING },
+  { x: 1 * H_SPACING, y: -0.5 * V_SPACING },
+  { x: 2 * H_SPACING, y: -0.5 * V_SPACING },
+  // Row 4 - AI/ML (5 hexagons, offset by half)
+  { x: -1.5 * H_SPACING, y: 0.5 * V_SPACING },
+  { x: -0.5 * H_SPACING, y: 0.5 * V_SPACING },
+  { x: 0.5 * H_SPACING, y: 0.5 * V_SPACING },
+  { x: 1.5 * H_SPACING, y: 0.5 * V_SPACING },
+  { x: 2.5 * H_SPACING, y: 0.5 * V_SPACING },
+  // Row 5 - Mobile (5 hexagons)
+  { x: -2 * H_SPACING, y: 1.5 * V_SPACING },
+  { x: -1 * H_SPACING, y: 1.5 * V_SPACING },
+  { x: 0, y: 1.5 * V_SPACING },
+  { x: 1 * H_SPACING, y: 1.5 * V_SPACING },
+  { x: 2 * H_SPACING, y: 1.5 * V_SPACING },
+  // Row 6 - DevOps (5 hexagons, offset by half)
+  { x: -1.5 * H_SPACING, y: 2.5 * V_SPACING },
+  { x: -0.5 * H_SPACING, y: 2.5 * V_SPACING },
+  { x: 0.5 * H_SPACING, y: 2.5 * V_SPACING },
+  { x: 1.5 * H_SPACING, y: 2.5 * V_SPACING },
+  { x: 2.5 * H_SPACING, y: 2.5 * V_SPACING },
+];
+
+// Category labels positioned around the honeycomb - properly aligned with rows
+const categoryLabelPositions = [
+  {
+    category: "Backend",
+    x: 2.95 * H_SPACING,
+    y: -2.1 * V_SPACING,
+    align: "left",
+  },
+  {
+    category: "Frontend",
+    x: -2.85 * H_SPACING,
+    y: -1.1 * V_SPACING,
+    align: "right",
+  },
+  {
+    category: "Database",
+    x: 2.95 * H_SPACING,
+    y: -0.1 * V_SPACING,
+    align: "left",
+  },
+  {
+    category: "AI/ML",
+    x: -2.61 * H_SPACING,
+    y: 0.9 * V_SPACING,
+    align: "right",
+  },
+  {
+    category: "DevOps",
+    x: 2.95 * H_SPACING,
+    y: 1.9 * V_SPACING,
+    align: "left",
+  },
+  {
+    category: "Mobile",
+    x: -2.7 * H_SPACING,
+    y: 2.9 * V_SPACING,
+    align: "right",
+  },
+];
+
 export default function SkillsSection() {
-  // Honeycomb pattern positions - organized in offset rows
-  const hexagonPositions = [
-    // Row 1 (5 hexagons)
-    { top: "5%", left: "20%" },
-    { top: "5%", left: "32%" },
-    { top: "5%", left: "44%" },
-    { top: "5%", left: "56%" },
-    { top: "5%", left: "68%" },
-    // Row 2 (6 hexagons - offset)
-    { top: "18%", left: "14%" },
-    { top: "18%", left: "26%" },
-    { top: "18%", left: "38%" },
-    { top: "18%", left: "50%" },
-    { top: "18%", left: "62%" },
-    { top: "18%", left: "74%" },
-    // Row 3 (5 hexagons)
-    { top: "31%", left: "20%" },
-    { top: "31%", left: "32%" },
-    { top: "31%", left: "44%" },
-    { top: "31%", left: "56%" },
-    { top: "31%", left: "68%" },
-    // Row 4 (6 hexagons - offset)
-    { top: "44%", left: "14%" },
-    { top: "44%", left: "26%" },
-    { top: "44%", left: "38%" },
-    { top: "44%", left: "50%" },
-    { top: "44%", left: "62%" },
-    { top: "44%", left: "74%" },
-    // Row 5 (5 hexagons)
-    { top: "57%", left: "20%" },
-    { top: "57%", left: "32%" },
-    { top: "57%", left: "44%" },
-    { top: "57%", left: "56%" },
-    { top: "57%", left: "68%" },
-    // Row 6 (4 hexagons - offset)
-    { top: "70%", left: "26%" },
-    { top: "70%", left: "38%" },
-    { top: "70%", left: "50%" },
-    { top: "70%", left: "62%" },
-  ];
-
-  // Violet glow positions for intersections
-  const violetGlowPositions = [
-    // Row 1-2 intersections
-    { top: "11%", left: "20%", delay: 0 },
-    { top: "11%", left: "32%", delay: 0.2 },
-    { top: "11%", left: "44%", delay: 0.4 },
-    { top: "11%", left: "56%", delay: 0.6 },
-    { top: "11%", left: "68%", delay: 0.8 },
-    // Row 2-3 intersections
-    { top: "24%", left: "14%", delay: 0.3 },
-    { top: "24%", left: "26%", delay: 0.5 },
-    { top: "24%", left: "38%", delay: 0.7 },
-    { top: "24%", left: "50%", delay: 0.9 },
-    { top: "24%", left: "62%", delay: 1.1 },
-    { top: "24%", left: "74%", delay: 1.3 },
-    // Row 3-4 intersections
-    { top: "37%", left: "20%", delay: 0.4 },
-    { top: "37%", left: "32%", delay: 0.6 },
-    { top: "37%", left: "44%", delay: 0.8 },
-    { top: "37%", left: "56%", delay: 1.0 },
-    { top: "37%", left: "68%", delay: 1.2 },
-    // Row 4-5 intersections
-    { top: "50%", left: "14%", delay: 0.5 },
-    { top: "50%", left: "26%", delay: 0.7 },
-    { top: "50%", left: "38%", delay: 0.9 },
-    { top: "50%", left: "50%", delay: 1.1 },
-    { top: "50%", left: "62%", delay: 1.3 },
-    { top: "50%", left: "74%", delay: 1.5 },
-    // Row 5-6 intersections
-    { top: "63%", left: "20%", delay: 0.6 },
-    { top: "63%", left: "32%", delay: 0.8 },
-    { top: "63%", left: "44%", delay: 1.0 },
-    { top: "63%", left: "56%", delay: 1.2 },
-    { top: "63%", left: "68%", delay: 1.4 },
-  ];
-
   return (
     <section
       className="py-32 px-4 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
@@ -152,210 +164,210 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center"
         >
           <span className="px-4 py-2 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-full text-sm font-medium inline-block mb-4">
             🐝 Tech Stack Beehive
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Technologies I Master
+          <h2 className="text-4xl  md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Technical Skills
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Each colony represents a domain of expertise, working together in
             perfect harmony
           </p>
-
-          {/* Category Legend */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {Object.entries(categoryColors).map(([key, cat]) => (
-              <div
-                key={key}
-                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 rounded-full shadow-md"
-              >
-                <div
-                  className="w-3 h-3 rounded-full animate-pulse"
-                  style={{
-                    backgroundColor: cat.bg,
-                    boxShadow: `0 0 10px ${cat.bg}80`,
-                  }}
-                />
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {cat.name}
-                </span>
-              </div>
-            ))}
-          </div>
         </motion.div>
 
-        {/* Single Unified Beehive */}
-        <div className="relative max-w-6xl mx-auto flex justify-center">
-          <div className="relative" style={{ width: "900px", height: "700px" }}>
-            {/* Violet Glow Intersections */}
-            <div className="absolute inset-0 pointer-events-none">
-              {violetGlowPositions.map((pos, idx) => (
-                <div
-                  key={idx}
-                  className="absolute"
+        {/* Unified Honeycomb - All skills merged */}
+        <div className="relative flex justify-center items-center overflow-visible">
+          <div
+            className="relative"
+            style={{ width: "1200px", height: "750px" }}
+          >
+            {/* Category Labels positioned around the honeycomb */}
+            {categoryLabelPositions.map((labelPos, idx) => {
+              const catColor = categoryColors[labelPos.category];
+              return (
+                <motion.div
+                  key={labelPos.category}
+                  initial={{
+                    opacity: 0,
+                    x: labelPos.align === "left" ? 30 : -30,
+                  }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.08 }}
+                  viewport={{ once: true }}
+                  className={`absolute hidden lg:flex items-center gap-0 whitespace-nowrap z-30 ${
+                    labelPos.align === "right" ? "flex-row-reverse" : ""
+                  }`}
                   style={{
-                    top: pos.top,
-                    left: pos.left,
-                    transform: "translate(-50%, -50%)",
+                    left: `calc(50% + ${labelPos.x}px)`,
+                    top: `calc(50% + ${labelPos.y}px)`,
+                    transform: `translateY(-50%)`,
                   }}
                 >
+                  {/* Connector line with gradient */}
                   <div
-                    className="w-8 h-8 rounded-full bg-violet-400 opacity-80 blur-xl animate-pulse"
-                    style={{ animationDelay: `${pos.delay}s` }}
+                    className={`h-[1px] w-14 ${labelPos.align === "left" ? "bg-gradient-to-r" : "bg-gradient-to-l"}`}
+                    style={{
+                      backgroundImage: `linear-gradient(${labelPos.align === "left" ? "to right" : "to left"}, ${catColor?.bg}80, ${catColor?.bg})`,
+                    }}
                   />
+                  {/* Modern pill label */}
+                  <div className="relative group/label">
+                    <div
+                      className="absolute inset-0 rounded-lg blur-md opacity-40 group-hover/label:opacity-60 transition-opacity"
+                      style={{ backgroundColor: catColor?.bg }}
+                    />
+                    <div
+                      className="relative flex items-center gap-2 px-3 py-1.5 rounded-lg backdrop-blur-sm border"
+                      style={{
+                        background: `linear-gradient(135deg, ${catColor?.bg}15, ${catColor?.bg}25)`,
+                        borderColor: `${catColor?.bg}50`,
+                      }}
+                    >
+                      <div
+                        className="w-1.5 h-1.5 rounded-full"
+                        style={{
+                          backgroundColor: catColor?.bg,
+                          boxShadow: `0 0 6px ${catColor?.bg}`,
+                        }}
+                      />
+                      <span
+                        className="text-[11px] font-semibold tracking-wide uppercase"
+                        style={{ color: catColor?.bg }}
+                      >
+                        {labelPos.category}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+
+            {/* Mobile Category Legend */}
+            <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-2 md:hidden">
+              {Object.entries(categoryColors).map(([key, cat]) => (
+                <div
+                  key={key}
+                  className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-slate-800 rounded-full shadow-sm border"
+                  style={{ borderColor: cat.bg }}
+                >
                   <div
-                    className="absolute inset-0 w-8 h-8 rounded-full bg-violet-500 opacity-60 blur-lg animate-pulse"
-                    style={{ animationDelay: `${pos.delay}s` }}
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: cat.bg }}
                   />
-                  <div
-                    className="absolute inset-0 w-8 h-8 rounded-full bg-violet-600 opacity-40 blur-md animate-pulse"
-                    style={{ animationDelay: `${pos.delay}s` }}
-                  />
+                  <span
+                    className="text-[10px] font-medium"
+                    style={{ color: cat.bg }}
+                  >
+                    {key}
+                  </span>
                 </div>
               ))}
             </div>
 
-            {skillsHoneycomb.map((skill, idx) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: idx * 0.05,
-                  type: "spring",
-                  stiffness: 100,
-                }}
-                viewport={{ once: true }}
-                whileHover={{
-                  scale: 1.2,
-                  zIndex: 50,
-                  transition: { duration: 0.2 },
-                }}
-                className="group absolute"
-                style={{
-                  top: hexagonPositions[idx]?.top || "0%",
-                  left: hexagonPositions[idx]?.left || "0%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <div
-                  className="relative w-20 h-24 md:w-24 md:h-28 cursor-pointer"
+            {/* All hexagons in unified honeycomb */}
+            {skillsHoneycomb.map((skill, idx) => {
+              const pos = unifiedHexPositions[idx] || { x: 0, y: 0 };
+              return (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: idx * 0.02,
+                    type: "spring",
+                    stiffness: 120,
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{
+                    scale: 1.2,
+                    zIndex: 50,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="group absolute"
                   style={{
-                    clipPath:
-                      "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                    left: `calc(50% + ${pos.x}px)`,
+                    top: `calc(50% + ${pos.y}px)`,
+                    transform: "translate(-50%, -50%)",
                   }}
                 >
-                  {/* Hexagon Glow Effect - Behind */}
                   <div
-                    className="absolute inset-0 transition-all duration-300"
+                    className="relative cursor-pointer"
                     style={{
-                      clipPath:
-                        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                      filter: `drop-shadow(0 0 8px ${skill.glow}) drop-shadow(0 0 12px ${skill.glow}) drop-shadow(0 0 16px ${skill.glow})`,
-                    }}
-                  />
-
-                  {/* Hexagon Border Outer */}
-                  <div
-                    className="absolute inset-0 transition-all duration-300"
-                    style={{
-                      clipPath:
-                        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                      backgroundColor: skill.color,
-                    }}
-                  />
-
-                  {/* Hexagon Inner - Transparent (creates border effect) */}
-                  <div
-                    className="absolute inset-[3px] transition-all duration-300 bg-slate-50 dark:bg-slate-900"
-                    style={{
+                      width: `${HEX_WIDTH}px`,
+                      height: `${HEX_HEIGHT}px`,
                       clipPath:
                         "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
                     }}
-                  />
+                  >
+                    {/* Hexagon Glow Effect */}
+                    <div
+                      className="absolute inset-0 transition-all duration-300"
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                        filter: `drop-shadow(0 0 6px ${skill.glow}) drop-shadow(0 0 10px ${skill.glow})`,
+                      }}
+                    />
 
-                  {/* Enhanced Hover Glow */}
-                  <div
-                    className="absolute -inset-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"
-                    style={{
-                      background: `radial-gradient(circle, ${skill.glow}, transparent)`,
-                    }}
-                  />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-2 z-10">
-                    <div className="text-white mb-1 group-hover:scale-125 transition-transform duration-300">
-                      {skillIconMap[skill.icon] || (
-                        <Hexagon className="w-6 h-6 md:w-7 md:h-7" />
-                      )}
+                    {/* Hexagon Border Outer */}
+                    <div
+                      className="absolute inset-0 transition-all duration-300"
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                        backgroundColor: skill.color,
+                      }}
+                    />
+
+                    {/* Hexagon Inner */}
+                    <div
+                      className="absolute inset-[2px] transition-all duration-300 bg-slate-50 dark:bg-slate-900"
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                      }}
+                    />
+
+                    {/* Enhanced Hover Glow */}
+                    <div
+                      className="absolute -inset-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
+                      style={{
+                        background: `radial-gradient(circle, ${skill.glow}, transparent)`,
+                      }}
+                    />
+
+                    {/* Content */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-1 z-10">
+                      <div className="text-white mb-1 group-hover:scale-110 transition-transform duration-300">
+                        {skillIconMap[skill.icon] || (
+                          <Hexagon className="w-6 h-6 md:w-7 md:h-7" />
+                        )}
+                      </div>
+                      <div className="text-white text-[9px] md:text-[10px] font-bold text-center leading-tight px-1">
+                        {skill.name}
+                      </div>
                     </div>
-                    <div className="text-white text-[10px] md:text-xs font-bold text-center leading-tight">
-                      {skill.name}
-                    </div>
+
+                    {/* Shine effect on hover */}
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                        background:
+                          "linear-gradient(135deg, transparent 0%, white 50%, transparent 100%)",
+                      }}
+                    />
                   </div>
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-                    style={{
-                      clipPath:
-                        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                      background:
-                        "linear-gradient(135deg, transparent 0%, white 50%, transparent 100%)",
-                    }}
-                  />
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
-
-        {/* Bottom Stats with Glow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <div className="inline-block bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8 border border-gray-100 dark:border-slate-700">
-            <div className="grid grid-cols-3 gap-8">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 rounded-2xl" />
-                <div className="relative">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
-                    30+
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    Technologies
-                  </div>
-                </div>
-              </div>
-              <div className="relative group">
-                <div className="absolute inset-0 bg-purple-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 rounded-2xl" />
-                <div className="relative">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-                    6
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    Colonies
-                  </div>
-                </div>
-              </div>
-              <div className="relative group">
-                <div className="absolute inset-0 bg-orange-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 rounded-2xl" />
-                <div className="relative">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">
-                    5+
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    Years Learning
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
