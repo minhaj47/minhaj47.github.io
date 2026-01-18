@@ -1,84 +1,66 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Hexagon } from "lucide-react";
+import {
+  Atom,
+  Brain,
+  CircleDot,
+  Cloud,
+  Code,
+  Container,
+  Cylinder,
+  Database,
+  FileCode2,
+  Flame,
+  GitBranch,
+  Hexagon,
+  Layers,
+  Leaf,
+  Link,
+  Plug,
+  Radio,
+  Rocket,
+  Search,
+  Send,
+  Server,
+  Share2,
+  Smartphone,
+  Sparkles,
+  Triangle,
+  Wind,
+  Zap,
+} from "lucide-react";
 import { categoryColors, skillsHoneycomb } from "./SharedData";
 
-// Import colorful brand icons from react-icons
-import {
-  SiNodedotjs,
-  SiExpress,
-  SiFastapi,
-  SiGraphql,
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiFlutter,
-  SiPostgresql,
-  SiMysql,
-  SiMongodb,
-  SiRedis,
-  SiPrisma,
-  SiLangchain,
-  SiTensorflow,
-  SiKotlin,
-  SiJetpackcompose,
-  SiFirebase,
-  SiSocketdotio,
-  SiDocker,
-  SiGit,
-  SiAmazonwebservices,
-  SiNginx,
-  SiPostman,
-  SiGooglegemini,
-} from "react-icons/si";
-import { TbApi, TbVectorBezier2, TbBrain } from "react-icons/tb";
-import { BsSearch } from "react-icons/bs";
-
-// Colorful icon mapping for skills with brand colors
+// Icon mapping for skills
 const skillIconMap: Record<string, React.ReactNode> = {
-  // Backend
-  "Node.js": <SiNodedotjs className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#339933" }} />,
-  Express: <SiExpress className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#ffffff" }} />,
-  FastAPI: <SiFastapi className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#009688" }} />,
-  "REST API": <TbApi className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FF6B6B" }} />,
-  GraphQL: <SiGraphql className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#E10098" }} />,
-
-  // Frontend
-  React: <SiReact className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#61DAFB" }} />,
-  "Next.js": <SiNextdotjs className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#ffffff" }} />,
-  TypeScript: <SiTypescript className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#3178C6" }} />,
-  Tailwind: <SiTailwindcss className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#06B6D4" }} />,
-  Flutter: <SiFlutter className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#02569B" }} />,
-
-  // Database
-  PostgreSQL: <SiPostgresql className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#4169E1" }} />,
-  MySQL: <SiMysql className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#4479A1" }} />,
-  MongoDB: <SiMongodb className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#47A248" }} />,
-  Redis: <SiRedis className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#DC382D" }} />,
-  Prisma: <SiPrisma className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#2D3748" }} />,
-
-  // AI/ML
-  LangChain: <SiLangchain className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#1C3C3C" }} />,
-  RAG: <BsSearch className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FF6B35" }} />,
-  Qdrant: <TbVectorBezier2 className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#DC244C" }} />,
-  Gemini: <SiGooglegemini className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#8E75B2" }} />,
-  TensorFlow: <SiTensorflow className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FF6F00" }} />,
-
-  // Mobile
-  Kotlin: <SiKotlin className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#7F52FF" }} />,
-  Jetpack: <SiJetpackcompose className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#4285F4" }} />,
-  Firebase: <SiFirebase className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FFCA28" }} />,
-  "React Native": <SiReact className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#61DAFB" }} />,
-  "Socket.IO": <SiSocketdotio className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#010101" }} />,
-
-  // DevOps
-  Docker: <SiDocker className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#2496ED" }} />,
-  Git: <SiGit className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#F05032" }} />,
-  AWS: <SiAmazonwebservices className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FF9900" }} />,
-  Nginx: <SiNginx className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#009639" }} />,
-  Postman: <SiPostman className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FF6C37" }} />,
+  Hexagon: <Hexagon className="w-6 h-6 md:w-7 md:h-7" />,
+  Zap: <Zap className="w-6 h-6 md:w-7 md:h-7" />,
+  Rocket: <Rocket className="w-6 h-6 md:w-7 md:h-7" />,
+  Plug: <Plug className="w-6 h-6 md:w-7 md:h-7" />,
+  Share2: <Share2 className="w-6 h-6 md:w-7 md:h-7" />,
+  Atom: <Atom className="w-6 h-6 md:w-7 md:h-7" />,
+  Triangle: <Triangle className="w-6 h-6 md:w-7 md:h-7" />,
+  FileCode2: <FileCode2 className="w-6 h-6 md:w-7 md:h-7" />,
+  Wind: <Wind className="w-6 h-6 md:w-7 md:h-7" />,
+  Smartphone: <Smartphone className="w-6 h-6 md:w-7 md:h-7" />,
+  Database: <Database className="w-6 h-6 md:w-7 md:h-7" />,
+  Cylinder: <Cylinder className="w-6 h-6 md:w-7 md:h-7" />,
+  Leaf: <Leaf className="w-6 h-6 md:w-7 md:h-7" />,
+  Layers: <Layers className="w-6 h-6 md:w-7 md:h-7" />,
+  Link: <Link className="w-6 h-6 md:w-7 md:h-7" />,
+  Search: <Search className="w-6 h-6 md:w-7 md:h-7" />,
+  CircleDot: <CircleDot className="w-6 h-6 md:w-7 md:h-7" />,
+  Sparkles: <Sparkles className="w-6 h-6 md:w-7 md:h-7" />,
+  Brain: <Brain className="w-6 h-6 md:w-7 md:h-7" />,
+  Code: <Code className="w-6 h-6 md:w-7 md:h-7" />,
+  Flame: <Flame className="w-6 h-6 md:w-7 md:h-7" />,
+  Radio: <Radio className="w-6 h-6 md:w-7 md:h-7" />,
+  Container: <Container className="w-6 h-6 md:w-7 md:h-7" />,
+  GitBranch: <GitBranch className="w-6 h-6 md:w-7 md:h-7" />,
+  Cloud: <Cloud className="w-6 h-6 md:w-7 md:h-7" />,
+  Server: <Server className="w-6 h-6 md:w-7 md:h-7" />,
+  Send: <Send className="w-6 h-6 md:w-7 md:h-7" />,
 };
 
 export default function SkillsSection() {
@@ -305,7 +287,7 @@ export default function SkillsSection() {
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-2 z-10">
                     <div className="text-white mb-1 group-hover:scale-125 transition-transform duration-300">
-                      {skillIconMap[skill.name] || (
+                      {skillIconMap[skill.icon] || (
                         <Hexagon className="w-6 h-6 md:w-7 md:h-7" />
                       )}
                     </div>
