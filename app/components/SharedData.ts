@@ -668,7 +668,7 @@ export const jsConcepts = [
       "Deep understanding of how JS executes code - creation phase, execution phase, scope chain, and variable hoisting",
     example:
       "Optimized nested function calls in TickEasy for 300-400 QR scans/hour",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-500 to-indigo-500",
   },
   {
     title: "Event Loop & Asynchronous JS",
@@ -714,20 +714,29 @@ export const jsConcepts = [
       "Implemented API response caching to reduce database queries by 60%",
     color: "from-pink-500 to-rose-500",
   },
+  {
+    title: "Task Scheduler & Queues",
+    icon: "📋",
+    description:
+      "Custom task scheduling with priority queues and job processing for background operations",
+    example:
+      "Built job queue system for async email notifications and data processing",
+    color: "from-amber-500 to-yellow-500",
+  },
 ];
 
 export const performanceMetrics = [
   {
     metric: "API Response Time",
-    before: "850ms",
-    after: "340ms",
+    before: "850 ms",
+    after: "340 ms",
     improvement: "60% faster",
     technique: "LRU Cache + Query Optimization",
   },
   {
     metric: "Search Performance",
     before: "API call on every keystroke",
-    after: "Debounced 300ms",
+    after: "Debounced by 300ms",
     improvement: "90% fewer calls",
     technique: "Debouncing Implementation",
   },

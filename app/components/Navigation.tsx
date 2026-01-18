@@ -36,18 +36,7 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <motion.a
-            href="#"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-          >
-            Minhaj
-          </motion.a>
-
+        <div className="flex justify-center items-center h-16">
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-6">
             {navItems.map((item, index) => (

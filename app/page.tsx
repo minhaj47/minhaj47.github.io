@@ -24,7 +24,7 @@ export default function Home() {
       {/* Navigation */}
       <Navigation />
 
-      {/* Hero Section */}
+      {/* Hero Section - Queen Cell Design */}
       <HeroSection />
 
       {/* About Section */}
