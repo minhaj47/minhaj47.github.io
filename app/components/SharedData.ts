@@ -193,7 +193,7 @@ export const skillsHoneycomb: Skill[] = [
     glow: "rgba(244, 81, 30, 0.4)",
   },
   {
-    name: "Gemini",
+    name: "Gemini API",
     icon: "Sparkles",
     category: "AI/ML",
     color: "#E64A19",

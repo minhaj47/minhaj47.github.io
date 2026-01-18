@@ -1,66 +1,173 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Hexagon } from "lucide-react";
+import { HiOutlineServerStack } from "react-icons/hi2";
 import {
-  Atom,
-  Brain,
-  CircleDot,
-  Cloud,
-  Code,
-  Container,
-  Cylinder,
-  Database,
-  FileCode2,
-  Flame,
-  GitBranch,
-  Hexagon,
-  Layers,
-  Leaf,
-  Link,
-  Plug,
-  Radio,
-  Rocket,
-  Search,
-  Send,
-  Server,
-  Share2,
-  Smartphone,
-  Sparkles,
-  Triangle,
-  Wind,
-  Zap,
-} from "lucide-react";
+  SiAmazonwebservices,
+  SiDocker,
+  SiExpress,
+  SiFastapi,
+  SiFirebase,
+  SiFlutter,
+  SiGit,
+  SiGooglegemini,
+  SiJetpackcompose,
+  SiJira,
+  SiKotlin,
+  SiLangchain,
+  SiMongodb,
+  SiMysql,
+  SiN8N,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiReact,
+  SiRedis,
+  SiSocketdotio,
+  SiTailwindcss,
+  SiTensorflow,
+  SiTypescript,
+} from "react-icons/si";
+import { TbApi, TbSearch, TbVector } from "react-icons/tb";
 import { categoryColors, skillsHoneycomb } from "./SharedData";
 
-// Icon mapping for skills
+// Icon mapping for skills with actual colorful brand logos
 const skillIconMap: Record<string, React.ReactNode> = {
-  Hexagon: <Hexagon className="w-6 h-6 md:w-7 md:h-7" />,
-  Zap: <Zap className="w-6 h-6 md:w-7 md:h-7" />,
-  Rocket: <Rocket className="w-6 h-6 md:w-7 md:h-7" />,
-  Plug: <Plug className="w-6 h-6 md:w-7 md:h-7" />,
-  Share2: <Share2 className="w-6 h-6 md:w-7 md:h-7" />,
-  Atom: <Atom className="w-6 h-6 md:w-7 md:h-7" />,
-  Triangle: <Triangle className="w-6 h-6 md:w-7 md:h-7" />,
-  FileCode2: <FileCode2 className="w-6 h-6 md:w-7 md:h-7" />,
-  Wind: <Wind className="w-6 h-6 md:w-7 md:h-7" />,
-  Smartphone: <Smartphone className="w-6 h-6 md:w-7 md:h-7" />,
-  Database: <Database className="w-6 h-6 md:w-7 md:h-7" />,
-  Cylinder: <Cylinder className="w-6 h-6 md:w-7 md:h-7" />,
-  Leaf: <Leaf className="w-6 h-6 md:w-7 md:h-7" />,
-  Layers: <Layers className="w-6 h-6 md:w-7 md:h-7" />,
-  Link: <Link className="w-6 h-6 md:w-7 md:h-7" />,
-  Search: <Search className="w-6 h-6 md:w-7 md:h-7" />,
-  CircleDot: <CircleDot className="w-6 h-6 md:w-7 md:h-7" />,
-  Sparkles: <Sparkles className="w-6 h-6 md:w-7 md:h-7" />,
-  Brain: <Brain className="w-6 h-6 md:w-7 md:h-7" />,
-  Code: <Code className="w-6 h-6 md:w-7 md:h-7" />,
-  Flame: <Flame className="w-6 h-6 md:w-7 md:h-7" />,
-  Radio: <Radio className="w-6 h-6 md:w-7 md:h-7" />,
-  Container: <Container className="w-6 h-6 md:w-7 md:h-7" />,
-  GitBranch: <GitBranch className="w-6 h-6 md:w-7 md:h-7" />,
-  Cloud: <Cloud className="w-6 h-6 md:w-7 md:h-7" />,
-  Server: <Server className="w-6 h-6 md:w-7 md:h-7" />,
-  Send: <Send className="w-6 h-6 md:w-7 md:h-7" />,
+  // Backend
+  "Node.js": (
+    <SiNodedotjs
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#339933" }}
+    />
+  ),
+  Express: (
+    <SiExpress className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#ffffff" }} />
+  ),
+  FastAPI: (
+    <SiFastapi className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#009688" }} />
+  ),
+  "REST API": (
+    <TbApi className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FF6B6B" }} />
+  ),
+  Microservices: (
+    <HiOutlineServerStack
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#64B5F6" }}
+    />
+  ),
+
+  // Frontend
+  React: (
+    <SiReact className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#61DAFB" }} />
+  ),
+  "Next.js": (
+    <SiNextdotjs
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#ffffff" }}
+    />
+  ),
+  TypeScript: (
+    <SiTypescript
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#3178C6" }}
+    />
+  ),
+  Tailwind: (
+    <SiTailwindcss
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#06B6D4" }}
+    />
+  ),
+  "Socket.IO": (
+    <SiSocketdotio
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#ffffff" }}
+    />
+  ),
+
+  // Database
+  PostgreSQL: (
+    <SiPostgresql
+      className="w-7 h-7 md:w-8 md:h-8"
+      style={{ color: "#336791" }}
+    />
+  ),
+  MySQL: (
+    <SiMysql className="w-8 h-8 md:w-9 md:h-9" style={{ color: "#00758F" }} />
+  ),
+  MongoDB: (
+    <SiMongodb className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#47A248" }} />
+  ),
+  Redis: (
+    <SiRedis className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#DC382D" }} />
+  ),
+  Prisma: (
+    <SiPrisma className="w-7 h-7 md:w-8 md:h-8" style={{ color: "#5A67D8" }} />
+  ),
+
+  // AI/ML
+  LangChain: (
+    <SiLangchain
+      className="w-7 h-7 md:w-8 md:h-8"
+      style={{ color: "#10B981" }}
+    />
+  ),
+  RAG: (
+    <TbSearch className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#FF6B6B" }} />
+  ),
+  Qdrant: (
+    <TbVector className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#DC382D" }} />
+  ),
+  "Gemini API": (
+    <SiGooglegemini
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#8E75B2" }}
+    />
+  ),
+  TensorFlow: (
+    <SiTensorflow
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#FF6F00" }}
+    />
+  ),
+
+  // DevOps
+  Docker: (
+    <SiDocker className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#2496ED" }} />
+  ),
+  Git: <SiGit className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#F05032" }} />,
+  AWS: (
+    <SiAmazonwebservices
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#FF9900" }}
+    />
+  ),
+  Jira: (
+    <SiJira className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#0052CC" }} />
+  ),
+  n8n: <SiN8N className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#EA4B71" }} />,
+
+  // Mobile
+  Kotlin: (
+    <SiKotlin className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#7F52FF" }} />
+  ),
+  Jetpack: (
+    <SiJetpackcompose
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#4285F4" }}
+    />
+  ),
+  Firebase: (
+    <SiFirebase
+      className="w-6 h-6 md:w-7 md:h-7"
+      style={{ color: "#FFCA28" }}
+    />
+  ),
+  Flutter: (
+    <SiFlutter className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#02569B" }} />
+  ),
 };
 
 // Unified honeycomb positions for all 30 skills - properly spaced
@@ -270,20 +377,22 @@ export default function SkillsSection() {
             {/* All hexagons in unified honeycomb */}
             {skillsHoneycomb.map((skill, idx) => {
               const pos = unifiedHexPositions[idx] || { x: 0, y: 0 };
+              const catColor =
+                categoryColors[skill.category]?.bg || skill.color;
               return (
                 <motion.div
                   key={skill.name}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{
-                    duration: 0.4,
+                    duration: 0.7,
                     delay: idx * 0.02,
                     type: "spring",
                     stiffness: 120,
                   }}
                   viewport={{ once: true }}
                   whileHover={{
-                    scale: 1.2,
+                    scale: 1.15,
                     zIndex: 50,
                     transition: { duration: 0.2 },
                   }}
@@ -294,6 +403,23 @@ export default function SkillsSection() {
                     transform: "translate(-50%, -50%)",
                   }}
                 >
+                  {/* Outer glow effect - visible on hover, OUTSIDE the hexagon */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-all duration-300 pointer-events-none"
+                    style={{
+                      filter: `drop-shadow(0 0 8px ${catColor}) drop-shadow(0 0 16px ${catColor})`,
+                    }}
+                  >
+                    <div
+                      className="w-full h-full"
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                        backgroundColor: catColor,
+                      }}
+                    />
+                  </div>
+
                   <div
                     className="relative cursor-pointer"
                     style={{
@@ -303,16 +429,6 @@ export default function SkillsSection() {
                         "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
                     }}
                   >
-                    {/* Hexagon Glow Effect */}
-                    <div
-                      className="absolute inset-0 transition-all duration-300"
-                      style={{
-                        clipPath:
-                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                        filter: `drop-shadow(0 0 6px ${skill.glow}) drop-shadow(0 0 10px ${skill.glow})`,
-                      }}
-                    />
-
                     {/* Hexagon Border Outer */}
                     <div
                       className="absolute inset-0 transition-all duration-300"
@@ -332,36 +448,17 @@ export default function SkillsSection() {
                       }}
                     />
 
-                    {/* Enhanced Hover Glow */}
-                    <div
-                      className="absolute -inset-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
-                      style={{
-                        background: `radial-gradient(circle, ${skill.glow}, transparent)`,
-                      }}
-                    />
-
                     {/* Content */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-1 z-10">
-                      <div className="text-white mb-1 group-hover:scale-110 transition-transform duration-300">
-                        {skillIconMap[skill.icon] || (
-                          <Hexagon className="w-6 h-6 md:w-7 md:h-7" />
+                      <div className="mb-1 group-hover:scale-110 transition-transform duration-300">
+                        {skillIconMap[skill.name] || (
+                          <Hexagon className="w-6 h-6 md:w-7 md:h-7 text-white" />
                         )}
                       </div>
                       <div className="text-white text-[9px] md:text-[10px] font-bold text-center leading-tight px-1">
                         {skill.name}
                       </div>
                     </div>
-
-                    {/* Shine effect on hover */}
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-                      style={{
-                        clipPath:
-                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                        background:
-                          "linear-gradient(135deg, transparent 0%, white 50%, transparent 100%)",
-                      }}
-                    />
                   </div>
                 </motion.div>
               );
