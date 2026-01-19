@@ -33,7 +33,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-slate-800 border-1 border-amber-400 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+            className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-1 border-amber-400"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl">

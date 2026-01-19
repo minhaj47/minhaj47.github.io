@@ -191,7 +191,7 @@ export default function JavaScriptSection() {
           className="mb-16"
         >
           {/* Container with background and padding */}
-          <div className="bg-white dark:bg-slate-800  border-2 border-amber-400 rounded-2xl shadow-xl p-8 md:p-10 max-w-6xl mx-auto">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 md:p-10 max-w-6xl mx-auto border border-gray-200 dark:border-slate-700">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3 justify-center">
               Example Performance Impacts
             </h3>

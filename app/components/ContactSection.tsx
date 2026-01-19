@@ -88,7 +88,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl mb-6 bg-white bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl mb-6 bg-black dark:bg-white bg-clip-text dark:font-bold text-transparent">
             Let&apos;s Connect
           </h2>
         </motion.div>
@@ -250,7 +250,7 @@ export default function ContactSection() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-4 border-2 border-amber-500 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="w-full px-8 py-4 border-2 border-amber-500 text-black dark:text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Send Message
                 </motion.button>

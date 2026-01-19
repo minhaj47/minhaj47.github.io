@@ -99,7 +99,7 @@ export default function HeroSection() {
             {/* Stats Cards */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="text-center p-4 bg-gradient-to-br from-blue-50/80 to-purple-50/80 dark:from-slate-800 dark:to-slate-700 rounded-2xl border border-blue-200/50 dark:border-blue-900/30 backdrop-blur-sm">
-                <div className="text-3xl bg-white bg-clip-text text-transparent">
+                <div className="text-3xl bg-black dark:bg-white bg-clip-text text-transparent">
                   3000+
                 </div>
                 <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
@@ -107,7 +107,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-purple-50/80 to-blue-50/80 dark:from-slate-800 dark:to-slate-700 rounded-2xl border border-purple-200/50 dark:border-purple-900/30 backdrop-blur-sm">
-                <div className="text-3xl bg-white bg-clip-text text-transparent">
+                <div className="text-3xl bg-black dark:bg-white bg-clip-text text-transparent">
                   20+
                 </div>
                 <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
@@ -115,7 +115,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-blue-50/80 to-purple-50/80 dark:from-slate-800 dark:to-slate-700 rounded-2xl border border-blue-200/50 dark:border-blue-900/30 backdrop-blur-sm">
-                <div className="text-3xl bg-white bg-clip-text text-transparent">
+                <div className="text-3xl bg-black dark:bg-white bg-clip-text text-transparent">
                   1000+
                 </div>
                 <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
@@ -131,7 +131,7 @@ export default function HeroSection() {
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 border-1 border-amber-500 text-white rounded-full font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30"
+                className="group px-8 py-4 border-1 border-amber-500 text-black dark:text-white rounded-full font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30"
               >
                 Download CV
                 <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
@@ -252,7 +252,7 @@ export default function HeroSection() {
 
               {/* Hexagon Inner Background */}
               <div
-                className="absolute inset-[3px] bg-gradient-to-br from-white via-blue-50/30 to-white dark:from-slate-800 dark:via-slate-800 dark:to-slate-900"
+                className="absolute inset-[3px] bg-gradient-to-br from-amber-400 via-amber-50/30 to-amber dark:from-slate-800 dark:via-slate-800 dark:to-slate-900"
                 style={{
                   clipPath:
                     "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
@@ -261,7 +261,7 @@ export default function HeroSection() {
 
               {/* Subtle inner border */}
               <div
-                className="absolute inset-[6px] border border-blue-200/30 dark:border-blue-700/20"
+                className="absolute inset-[6px] border border-amber-200/30 dark:border-blue-700/20"
                 style={{
                   clipPath:
                     "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",

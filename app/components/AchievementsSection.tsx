@@ -50,7 +50,9 @@ export default function AchievementsSection() {
                 className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="w-16 h-16 border-4 border-amber-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300">
-                  {iconMap[achievement.iconName]}
+                  <div className="text-black dark:text-white">
+                    {iconMap[achievement.iconName]}
+                  </div>
                 </div>
                 <h3 className="font-bold text-gray-900 dark:text-white mb-2">
                   {achievement.title}

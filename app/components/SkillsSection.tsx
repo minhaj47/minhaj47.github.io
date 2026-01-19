@@ -43,7 +43,7 @@ const skillIconMap: Record<string, React.ReactNode> = {
     />
   ),
   Express: (
-    <SiExpress className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#ffffff" }} />
+    <SiExpress className="w-6 h-6 md:w-7 md:h-7 text-gray-900 dark:text-white" />
   ),
   FastAPI: (
     <SiFastapi className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#009688" }} />
@@ -63,10 +63,7 @@ const skillIconMap: Record<string, React.ReactNode> = {
     <SiReact className="w-6 h-6 md:w-7 md:h-7" style={{ color: "#61DAFB" }} />
   ),
   "Next.js": (
-    <SiNextdotjs
-      className="w-6 h-6 md:w-7 md:h-7"
-      style={{ color: "#ffffff" }}
-    />
+    <SiNextdotjs className="w-6 h-6 md:w-7 md:h-7 text-gray-900 dark:text-white" />
   ),
   TypeScript: (
     <SiTypescript
@@ -81,10 +78,7 @@ const skillIconMap: Record<string, React.ReactNode> = {
     />
   ),
   "Socket.IO": (
-    <SiSocketdotio
-      className="w-6 h-6 md:w-7 md:h-7"
-      style={{ color: "#ffffff" }}
-    />
+    <SiSocketdotio className="w-6 h-6 md:w-7 md:h-7 text-gray-900 dark:text-white" />
   ),
 
   // Database
@@ -452,10 +446,10 @@ export default function SkillsSection() {
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-1 z-10">
                       <div className="mb-1 group-hover:scale-110 transition-transform duration-300">
                         {skillIconMap[skill.name] || (
-                          <Hexagon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                          <Hexagon className="w-6 h-6 md:w-7 md:h-7 text-gray-700 dark:text-white" />
                         )}
                       </div>
-                      <div className="text-white text-[9px] md:text-[10px] font-bold text-center leading-tight px-1">
+                      <div className="text-gray-900 dark:text-white text-[9px] md:text-[10px] font-bold text-center leading-tight px-1">
                         {skill.name}
                       </div>
                     </div>

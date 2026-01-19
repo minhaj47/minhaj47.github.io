@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTheme } from "./ThemeProvider";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,9 +38,9 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-center items-center h-16">
+        <div className="flex justify-between items-center h-16">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-6 flex-1 justify-center">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -57,8 +59,31 @@ export default function Navigation() {
             ))}
           </div>
 
+          {/* Theme Toggle Button - Desktop */}
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            onClick={toggleTheme}
+            className={`hidden md:block p-2 rounded-lg transition-all duration-300 ${
+              scrolled
+                ? "text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-slate-800"
+                : "text-gray-700 dark:text-gray-200 hover:bg-blue-50/50 dark:hover:bg-slate-800/50"
+            }`}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          </motion.button>
+
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors p-2"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors p-2"

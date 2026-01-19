@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Code, Ubuntu } from "next/font/google";
 import Navigation from "./components/Navigation";
+import { ThemeProvider } from "./components/ThemeProvider";
 import "./globals.css";
 
 const ubuntu = Ubuntu({
@@ -47,8 +48,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${ubuntu.variable} ${firaCode.variable} antialiased`}>
-        <Navigation />
-        <main className="pt-16">{children}</main>
+        <ThemeProvider>
+          <Navigation />
+          <main className="pt-16">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
