@@ -1,3 +1,5 @@
+import { assetPath } from "../utils/paths";
+
 // Types
 export interface Skill {
   name: string;
@@ -318,7 +320,7 @@ export const projects: Project[] = [
     mobileAppUrl: "https://github.com/minhaj47/tick_easy_check_easy_2_0",
     gradient: "from-slate-700 to-slate-900",
     impact: "2-3K+ users, 100% success rate",
-    image: "/tickeasy.png",
+    image: assetPath("/tickeasy.png"),
   },
   {
     id: 2,
@@ -350,7 +352,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/md-abdullah-92/Eduverse",
     gradient: "from-slate-700 to-slate-900",
     impact: "~100K lines of code, 150+ APIs",
-    image: "/eduverse.png",
+    image: assetPath("/eduverse.png"),
   },
   {
     id: 3,
@@ -371,7 +373,7 @@ export const projects: Project[] = [
       "https://www.linkedin.com/posts/minhaj47_rag-research-nlp-ugcPost-7393984168889847808-VISV",
     gradient: "from-slate-700 to-slate-900",
     impact: "Research productivity tool",
-    image: "/research.png",
+    image: assetPath("/research.png"),
   },
   {
     id: 4,
@@ -392,7 +394,7 @@ export const projects: Project[] = [
     liveUrl: "https://frontend-dusky-nine-35.vercel.app/",
     gradient: "from-slate-700 to-slate-900",
     impact: "Live AI orchestrator",
-    image: "/eventure.png",
+    image: assetPath("/eventure.png"),
   },
   {
     id: 5,
@@ -415,7 +417,7 @@ export const projects: Project[] = [
     gradient: "from-slate-700 to-slate-900",
     impact: "1st Runner Up - GreenCon 2025",
     isHackathon: true,
-    image: "/crisis.png",
+    image: assetPath("/crisis.png"),
   },
   {
     id: 6,
@@ -440,7 +442,7 @@ export const projects: Project[] = [
       "https://www.linkedin.com/posts/minhaj47_automation-aiagents-n8n-activity-7368266477197488128-hCHe",
     gradient: "from-slate-700 to-slate-900",
     impact: "Live automation for university community",
-    image: "/bloodbot.png",
+    image: assetPath("/bloodbot.png"),
   },
   {
     id: 7,
@@ -472,7 +474,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/minhaj47/IKSS-website",
     gradient: "from-slate-700 to-slate-900",
     impact: "1000+ students reached, multiple events",
-    image: "/ikss.png",
+    image: assetPath("/ikss.png"),
   },
   {
     id: 8,
@@ -493,7 +495,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/minhaj47/e-commerce_flutter_nodejs",
     gradient: "from-slate-700 to-slate-900",
     impact: "Learning project - Best practices",
-    image: "/amazon.png",
+    image: assetPath("/amazon.png"),
   },
   {
     id: 9,
@@ -523,7 +525,7 @@ export const projects: Project[] = [
       "https://www.linkedin.com/posts/minhaj47_last-year-i-developed-my-first-fully-functional-activity-7210659851637506049-cDad",
     gradient: "from-slate-700 to-slate-900",
     impact: "First large-scale mobile project",
-    image: "/doctors.png",
+    image: assetPath("/doctors.png"),
   },
   {
     id: 10,
@@ -545,7 +547,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/minhaj47/tictactoe_flutter_multiplayer_game",
     gradient: "from-slate-700 to-slate-900",
     impact: "Socket.IO learning project",
-    image: "/tictactoe.jpg",
+    image: assetPath("/tictactoe.jpg"),
   },
 ];
 
