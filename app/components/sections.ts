@@ -4,6 +4,7 @@ export { default as AchievementsSection } from "./AchievementsSection";
 export { default as BackgroundEffects } from "./BackgroundEffects";
 export { default as ContactSection } from "./ContactSection";
 export { default as Footer } from "./Footer";
+export { default as GreenconSection } from "./GreenconSection";
 export { default as HeroSection } from "./HeroSection";
 export { default as JavaScriptSection } from "./JavaScriptSection";
 export { default as Navigation } from "./Navigation";

@@ -1,7 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, CheckCircle, Code, Trophy, Users } from "lucide-react";
+import {
+  Award,
+  Brain,
+  Cloud,
+  Code,
+  Container,
+  Sparkles,
+  Trophy,
+  Users,
+  Wrench,
+} from "lucide-react";
 import { achievements } from "./SharedData";
 
 // Icon mapping for achievements
@@ -39,7 +49,7 @@ export default function AchievementsSection() {
                 viewport={{ once: true }}
                 className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 border-4 border-amber-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300">
                   {iconMap[achievement.iconName]}
                 </div>
                 <h3 className="font-bold text-gray-900 dark:text-white mb-2">
@@ -78,48 +88,117 @@ export default function AchievementsSection() {
           </div>
 
           {/* Certifications */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6">
-            <h3 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2 text-lg">
+          <div className="border-2 border-amber-500 rounded-2xl shadow-lg p-8">
+            <h3 className="font-bold text-gray-900 dark:text-white mb-12 flex items-center justify-center gap-2 text-xl">
               <Award className="w-6 h-6 text-blue-500" />
               Professional Certifications
             </h3>
-            <div className="grid md:grid-cols-3 gap-4">
+
+            {/* Hexagon Grid */}
+            <div className="flex flex-wrap justify-center items-center gap-8 max-w-5xl mx-auto">
               {[
                 {
-                  title: "Supervised ML: Regression & Classification",
+                  title: "Supervised ML",
+                  subtitle: "Regression & Classification",
                   issuer: "DeepLearning.AI",
                   instructor: "Andrew Ng",
-                  color: "from-blue-500 to-cyan-500",
+                  issued: "Issued 2024",
+                  gradient: "from-blue-500 via-blue-600 to-cyan-600",
+                  icon: <Brain className="w-12 h-12" />,
                 },
                 {
-                  title: "Docker Training Course for Absolute Beginner",
+                  title: "Docker Training",
+                  subtitle: "Absolute Beginner",
                   issuer: "KodeKloud",
                   instructor: "",
-                  color: "from-cyan-500 to-blue-500",
+                  issued: "Issued 2024",
+                  gradient: "from-cyan-500 via-blue-500 to-blue-600",
+                  icon: <Container className="w-12 h-12" />,
                 },
                 {
-                  title: "AWS Academy Graduate - Cloud Foundations",
+                  title: "AWS Certified",
+                  subtitle: "Cloud Foundations",
                   issuer: "Amazon Web Services",
                   instructor: "",
-                  color: "from-orange-500 to-yellow-500",
+                  issued: "Issued 2024",
+                  gradient: "from-orange-500 via-orange-600 to-yellow-600",
+                  icon: <Cloud className="w-12 h-12" />,
+                },
+                {
+                  title: "Finetuning LLM",
+                  subtitle: "Basic",
+                  issuer: "DeepLearning.AI",
+                  instructor: "",
+                  issued: "Issued Aug 2025",
+                  gradient: "from-purple-500 via-purple-600 to-pink-600",
+                  icon: <Sparkles className="w-12 h-12" />,
+                },
+                {
+                  title: "DevOps Workshop",
+                  subtitle: "Absolute Beginners",
+                  issuer: "Ostad",
+                  instructor: "",
+                  issued: "Issued Aug 2025",
+                  gradient: "from-green-500 via-teal-600 to-cyan-600",
+                  icon: <Wrench className="w-12 h-12" />,
                 },
               ].map((cert, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-gray-50 dark:bg-slate-700 rounded-xl p-4 hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group cursor-pointer"
                 >
-                  <div
-                    className={`w-10 h-1 bg-gradient-to-r ${cert.color} rounded mb-3`}
-                  ></div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
-                    {cert.title}
-                  </h4>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">
-                    {cert.issuer}
-                    {cert.instructor && ` • ${cert.instructor}`}
-                  </p>
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-2" />
-                </div>
+                  {/* Hexagon Container */}
+                  <div className="relative w-48 h-52 hover:scale-105 transition-transform duration-300">
+                    {/* Hexagon Shape using clip-path */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} shadow-xl hover:shadow-2xl transition-shadow duration-300`}
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                      }}
+                    >
+                      {/* Content */}
+                      <div className="flex flex-col items-center justify-center h-full p-6 text-center">
+                        {/* Logo/Icon */}
+                        {/* <div className="mb-3 text-white drop-shadow-lg">
+                          {cert.icon}
+                        </div> */}
+
+                        <h4 className="font-bold text-white text-sm mb-1 leading-tight">
+                          {cert.title}
+                        </h4>
+                        <p className="text-white/90 text-xs mb-2 leading-tight">
+                          {cert.subtitle}
+                        </p>
+                        <div className="w-12 h-px bg-white/40 my-2"></div>
+                        <p className="text-white/80 text-xs font-medium">
+                          {cert.issuer}
+                        </p>
+                        {cert.instructor && (
+                          <p className="text-white/70 text-xs mt-1">
+                            {cert.instructor}
+                          </p>
+                        )}
+                        <p className="text-white/60 text-xs mt-2">
+                          {cert.issued}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Outer glow effect on hover */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`}
+                      style={{
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                      }}
+                    ></div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>

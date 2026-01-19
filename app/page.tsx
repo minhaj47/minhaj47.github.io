@@ -6,6 +6,7 @@ import {
   BackgroundEffects,
   ContactSection,
   Footer,
+  GreenconSection,
   HeroSection,
   JavaScriptSection,
   Navigation,
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* Achievements Section */}
       <AchievementsSection />
+
+      {/* Greencon Hackathon Section */}
+      <GreenconSection />
 
       {/* Contact Section */}
       <ContactSection />

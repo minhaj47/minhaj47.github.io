@@ -100,21 +100,27 @@ export default function ResearchSection() {
                 </span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Sentence Ordering in Bengali
+                NarrativeSense: Benchmarking Large Language Models for
+                Socio-Political Identity Framing in Bengali News Articles{" "}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                Exploring hybrid deep learning approaches for coherent sentence
-                sequencing in Bengali texts using advanced NLP techniques.
+                A computational benchmark to detect identity-based framing in
+                Bengali news using expert-annotated data and state-of-the-art
+                LLMs (GPT-4o, Gemini, Llama 3), revealing how narratives
+                engineer polarization in low-resource languages.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded text-xs">
-                  Deep Learning
+                  LLM Evaluation
                 </span>
                 <span className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded text-xs">
-                  NLP
+                  Bengali NLP
                 </span>
                 <span className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded text-xs">
-                  Bengali Language
+                  Socio-Political Framing
+                </span>
+                <span className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded text-xs">
+                  News Analysis
                 </span>
               </div>
             </div>
@@ -130,8 +136,7 @@ export default function ResearchSection() {
                 </span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Detection and Refutation of Misleading Islamic Historical
-                Narratives
+                Detection and Refutation of Misleading Historical Narratives
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                 Developing NLP-based models to detect biased content and
