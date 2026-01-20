@@ -29,7 +29,7 @@ export default function GreenconSection() {
     {
       name: "Roman Raihan",
       role: "Team Lead",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/roman-raihan-141a09260/",
     },
     {
       name: "Md. Minhajul Haque",
@@ -39,7 +39,7 @@ export default function GreenconSection() {
     {
       name: "Md Abdullah Al Mahadi Apurbo",
       role: "Full Stack Development",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/mdabdullahalmahdi92/",
     },
   ];
 
